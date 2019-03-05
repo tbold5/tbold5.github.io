@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zombie game</title>
+    <link rel='stylesheet'
+        type='text/css'
+        href='views.css'>
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+<body background='images/backGround.jpg'>
+    <div id='scoreBoard'>
+       <h3>Your Score: <h3 id='score'>0</h3></h3>
+    </div>
+
+    <audio id='snapAudio'>
+        <source src='snap.wav' type='audio/wav'>
+    </audio>
+    <audio id='snapAudio2'>
+            <source src='snap.wav' type='audio/wav'>
+        </audio>
+    <audio id='backgroundAudio'>
+        <source id='backgroundAudio'src='alien.wav' type='audio/wav'>
+    </audio>
+
+    <img id='zombie' class='zombies'src='images/zombie.png' style=position:absolute;>
+    <img id='zombie2' class='zombies'src='images/zombie.png'style=position:absolute;>
+
+    <div class="wrapper">
+        <button id='button'>End Game</button>
+    </div>
+
+    <script>
+        let x = window.innerHeight
+        let y = window.innerWidth
+        let counter = 1
+        setInterval(function playBackgroundMusic() {
+            document.getElementById('backgroundAudio').play()
+        }, 2000)
+        setInterval(function moveZombie() {
+            document.getElementById('zombie').style.left= Math.floor((Math.random() * 1200) + 1) + 'px';
+            document.getElementById('zombie').style.top= Math.floor((Math.random() * 600) + 1) + 'px';
+            document.getElementById('zombie2').style.left= Math.floor((Math.random() * 1200) + 1) + 'px';
+            document.getElementById('zombie2').style.top= Math.floor((Math.random() * 600) + 1) + 'px';
+        }, 2000)
+        function killZombie1() {
+            document.getElementById('score').innerHTML= counter++
+            setTimeout(document.getElementById('snapAudio').play(), 100)
+            setTimeout(document.getElementById('zombie').src= 'images/explosion.gif', 1000)
+        }
+        function killZombie2() {
+            document.getElementById('score').innerHTML= counter++
+            setTimeout(document.getElementById('snapAudio2').play(), 100)
+            setTimeout(document.getElementById('zombie2').src= 'images/explosion.gif', 1000)
+        }
+        setInterval(function zombieComeBack() {
+            document.getElementById('zombie').src='images/zombie.png'
+            setInterval(document.getElementById('zombie2').src='images/zombie.png', 1000)
+        }, 2000)
+        setInterval(function zombieComeBack2() {
+            document.getElementById('zombie2').src='images/zombie.png'
+        }, 2000)
+        function endGame() {
+            counter = 0;
+            document.getElementById('score').innerHTML= counter;
+            document.getElementById('zombie').style.left= 800 + 'px';
+            document.getElementById('zombie').style.top= 200 + 'px';
+            document.getElementById('zombie2').style.left= 350 + 'px';
+            document.getElementById('zombie2').style.top= 600 + 'px';
+        }
+
+        document.getElementById('button').onclick = endGame;
+        document.getElementById('zombie').onclick = killZombie1;
+        document.getElementById('zombie2').onclick = killZombie2;
+        document.getElementById('zombie').onclick = playBackgroundMusic;
+        document.getElementById('zombie2').onclick = playBackgroundMusic2;
+
+    </script>
+</body>
+</html>

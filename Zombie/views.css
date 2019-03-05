@@ -1,0 +1,48 @@
+body { 
+    background-color: black;
+}
+.zombies {
+    height: 100px;
+    width: 100px;
+}
+#scoreBoard {
+    text-align: center;
+    color:red;
+    font-family: fantasy;
+    font-size: 2em;
+}
+#zombie{
+    left: 800px;
+    top: 200px;
+}
+#zombie2 {
+    left: 350px;
+    top: 600px;
+}
+#button{
+    background-color: brown;
+    font-family: fantasy;
+    font-size: 1.5em;
+    bottom: 10%;
+    position: absolute;
+    display:inline-block;
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:1em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    transition: all 0.2s;
+}
+.wrapper {
+    text-align: center;
+}
+#button:hover {
+    border-color: rgba(255,255,255,1);
+    }
+    @media all and (max-width:30em){
+     a.button4{
+    display:block;
+    margin:0.2em auto;
+    }
+}
