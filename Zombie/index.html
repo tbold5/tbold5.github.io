@@ -33,17 +33,17 @@
     </div>
 
     <script>
-        let x = window.innerHeight
-        let y = window.innerWidth
         let counter = 1
         setInterval(function playBackgroundMusic() {
             document.getElementById('backgroundAudio').play()
         }, 2000)
         setInterval(function moveZombie() {
-            document.getElementById('zombie').style.left= Math.floor((Math.random() * 1200) + 1) + 'px';
-            document.getElementById('zombie').style.top= Math.floor((Math.random() * 600) + 1) + 'px';
-            document.getElementById('zombie2').style.left= Math.floor((Math.random() * 1200) + 1) + 'px';
-            document.getElementById('zombie2').style.top= Math.floor((Math.random() * 600) + 1) + 'px';
+            let x = window.innerHeight;
+            let y = window.innerWidth;
+            document.getElementById('zombie').style.left= Math.floor((Math.random() * (y - 100)) + 1) + 'px';
+            document.getElementById('zombie').style.top= Math.floor((Math.random() * (x - 100)) + 1) + 'px';
+            document.getElementById('zombie2').style.left= Math.floor((Math.random() * (y - 100)) + 1) + 'px';
+            document.getElementById('zombie2').style.top= Math.floor((Math.random() * (x - 100)) + 1) + 'px';
         }, 2000)
         function killZombie1() {
             document.getElementById('score').innerHTML= counter++
