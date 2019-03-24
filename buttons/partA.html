@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PartA</title>
+</head>
+<body>
+    
+    <script>
+    function createButtons(numbers) {
+	    for (let i= 1; i <= numbers; i++) {
+            let btn = document.createElement('button');
+            document.body.appendChild(btn);
+            btn.innerHTML = String.fromCharCode(i + 64);
+            
+            btn.addEventListener('click', function(){
+            console.log('Button ' + String.fromCharCode(i + 64) + ' was clicked.')
+            })
+    	}
+    }
+    createButtons(26)
+    </script>
+</body>
+</html>
